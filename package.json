@@ -6,7 +6,11 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "SET NODE_ENV=production npm run clean && webpack -p",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "deploysurge": "npm run build && surge -p dist",
+    "deploygh": "npm run build && git subtree push --prefix dist origin gh-pages",
+    "createaws": "s3-website create haha",
+    "deployaws": "npm run build && s3-website deploy dist"
   },
   "repository": "https://github.com/StephenGrider/WebpackProject",
   "author": "",
